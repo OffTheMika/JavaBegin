@@ -10,5 +10,5 @@ println();
 println("Opd 2.1");
 println();
 print("Hi,");
-print(" i am Mika Roosingh.");
+print(" I am Mika Roosingh.");
 print(" I love playing games!");
