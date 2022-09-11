@@ -1,5 +1,8 @@
-float gewicht = 50;
-float lengte = 1.65;
+size(500,400);
+background(255,255,255);
+
+float gewicht = 70;
+float lengte = 1.76;
 int leeftijd = 16;
 float BMI = 0;
 
@@ -8,16 +11,13 @@ BMI *= 10;
 BMI = round(BMI);
 BMI /= 10;
 
-size(500,700);
-background(255,255,255);
-
 rect(30,30,110,50);
 rect(30,120,110,50);
 rect(30,210,110,50);
 rect(250,100,200,100);
 
 fill(0,0,0);
-text("weight: " + gewicht + " KG",35,60);
+text("Weight: " + gewicht + " KG",35,60);
 text("Length: " + lengte + " meter",35,150);
 text("Age: " + leeftijd + " years old",35,240);
 textSize(30);
