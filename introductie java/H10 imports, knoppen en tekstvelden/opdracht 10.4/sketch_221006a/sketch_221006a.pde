@@ -10,7 +10,6 @@ int totaal = 0;
 
 void setup(){
  size(500,500);
- background(255);
  cp = new ControlP5(this);
  
  knop1 = cp.addButton("knop1");
@@ -28,9 +27,26 @@ void setup(){
 }
 
 void draw(){
-  
+   background(255);
+   
+   fill(0);
+   textSize(15);
+   text("ouders: " + ouders, 40,95);
+   
+   fill(0);
+   textSize(15);
+   text("studenten: " + studenten, 350,95);
+   
+   fill(0);
+   textSize(30);
+   text("totaal: " + totaal,190,300);
+   totaal = studenten + ouders;
 }
 
 void knop1(){
-  
+  ouders++;
+}
+
+void knop2(){
+ studenten++; 
 }
