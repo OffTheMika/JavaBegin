@@ -1,96 +1,47 @@
-Boolean speler1 = true;
-Boolean speler2 = false;
+Boolean speler = true;
+int[] tegels = new int[9];
 void setup(){
- size(600,600);
- background(255);
+  size(600,600);
+  background(255);
 }
 
 void draw(){
- for(int i = 1; i < 3; i++){
- line(200*i,0,200*i,600);
-  for(int j = 1; j<3; j++){
-  line(0,200*j,600,200*j); 
+  int x = 0;
+  int y = -200;
+ for(int i = 0; i <9; i++){
+  x = i%3*200;
+  if(i%3 == 0){
+    y+=200;
+  }
+  rect(x,y,200,200);
+  if(tegels[i] == 1){
+  line(i%3*200+50,y+150,i%3*200+150,y+50);
+  line(i%3*200+50, y+50, i%3*200+150,y+150);
+  }else{
+    if(tegels[i] == 2){
+    ellipse(i%3*200+100,y+100,125,125);
+  }
+  }
  }
- 
- }
-
-
 }
 
 void mousePressed(){
- if(speler1 == true && speler2 == false){
-  if(mouseX < 200 && mouseY < 200){
-    line(50,50,150,150);
-    line(50,150,150,50);
+  int x = 0;
+  int y = -200;
+  for(int i = 0; i<9; i++){
+     if(i%3 == 0){
+    y+=200;
   }
-
- }else{
-   if(speler2 == true && speler1 == false){
-      if(mouseX <200 && mouseY <200){
-       ellipse(100,100,140,140);
-      }
-   }
+    if(mouseX > (i%3*200) && mouseX < (i%3*200+200) && mouseY > y && mouseY < y+200){
+      
+  if(tegels[i] == 0 && speler){
+    tegels[i] = 1;
+    speler = false;
+  }else{
+      tegels[i] = 2;
+      speler = true;
 }
-
-
- if(speler1 == true && speler2 == false){
-  if(mouseX < 400 && mouseX > 200 && mouseY < 200){
-    line(250,50,350,150);
-    line(250,150,350,50);
+    }
   }
-
- }else{
-   if(speler2 == true && speler1 == false){
-      if(mouseX <400 && mouseX >200 && mouseY <200){
-       ellipse(300,100,140,140);
-      }
-   }
-}
-
-
- if(speler1 == true && speler2 == false){
-  if(mouseX < 600 && mouseX > 400 && mouseY < 200){
-    line(450,50,550,150);
-    line(450,150,550,50);
-  }
-
- }else{
-   if(speler2 == true && speler1 == false){
-      if(mouseX <600 && mouseX >400 && mouseY <200){
-       ellipse(500,100,140,140);
-      }
-   }
-}
-
-
- if(speler1 == true && speler2 == false){
-  if(mouseX < 200 && mouseY >200 && mouseY <400){
-    line(50,250,150,350);
-    line(50,350,150,250);
-  }
-
- }else{
-   if(speler2 == true && speler1 == false){
-      if(mouseX <200 && mouseY >200 && mouseY <400){
-       ellipse(100,300,140,140);
-      }
-   }
-}
-
-
- if(speler1 == true){
-   speler1 = false;
- }else{
-   if(speler1 == false){
-     speler1 = true;
-   }
- }
- if(speler2 == false){
-   speler2 = true;
- }else{
-   if(speler2 == true){
-    speler2 = false; 
-   }
- }
- 
+  
 }
