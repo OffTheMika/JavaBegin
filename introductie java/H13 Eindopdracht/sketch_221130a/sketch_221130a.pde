@@ -23,6 +23,9 @@ void draw(){
   }
   }
  }
+  if(tegels[0]== 1 && tegels[1] == 1 && tegels[2] ==1){
+    line(50,100,550,100);
+  }
 }
 
 void mousePressed(){
@@ -43,5 +46,5 @@ void mousePressed(){
 }
     }
   }
-  
+ 
 }
