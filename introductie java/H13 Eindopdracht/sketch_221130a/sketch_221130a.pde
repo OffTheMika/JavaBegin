@@ -29,7 +29,7 @@ void draw() {
       background(250, 255, 8);
       textSize(20);
       fill(0);
-      text("het is gelijkspel!", 230, 200);
+      text("het is gelijkspel!", 23, 200);
       text("klik op spatie om de game te resetten", 150, 250);
     }
   }
