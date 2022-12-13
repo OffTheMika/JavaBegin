@@ -22,6 +22,17 @@ void draw() {
       ellipse(i%3*200+100, y+100, 125, 125);
     }
   }
+
+  for (int i = 0; i <3; i++) {
+
+    if (tegels[0] > 0 && tegels[1] >0 && tegels[2] > 0 && tegels[3] > 0 && tegels[4] > 0 && tegels[5] > 0 && tegels[6] > 0 && tegels[7] > 0 && tegels[8] > 0 ) {
+      background(250, 255, 8);
+      textSize(20);
+      fill(0);
+      text("het is gelijkspel!", 230, 200);
+      text("klik op spatie om de game te resetten", 150, 250);
+    }
+  }
   for (int j = 1; j <3; j++) {
     for (int i = 0; i <3; i++) {
 
@@ -100,7 +111,7 @@ void draw() {
 }
 
 
- 
+
 
 
 void mousePressed() {
@@ -125,7 +136,7 @@ void mousePressed() {
 }
 void keyReleased() {
   if (keyCode == 32) {
-    
+
     tegels[0] = 0;
     tegels[1] = 0;
     tegels[2] = 0;
