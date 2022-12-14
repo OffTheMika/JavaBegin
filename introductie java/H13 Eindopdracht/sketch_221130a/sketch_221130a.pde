@@ -9,6 +9,7 @@ void draw() {
   int x = 0;
   int y = -200;
 
+
   for (int i = 0; i <9; i++) {
     x = i%3*200;
     if (i%3 == 0) {
@@ -23,94 +24,60 @@ void draw() {
     }
   }
 
-  for (int i = 0; i <3; i++) {
 
-    if (tegels[0] > 0 && tegels[1] >0 && tegels[2] > 0 && tegels[3] > 0 && tegels[4] > 0 && tegels[5] > 0 && tegels[6] > 0 && tegels[7] > 0 && tegels[8] > 0 ) {
-      background(250, 255, 8);
-      textSize(20);
-      fill(0);
-      text("het is gelijkspel!", 23, 200);
-      text("klik op spatie om de game te resetten", 150, 250);
-    }
+  if (tegels[0] > 0 && tegels[1] >0 && tegels[2] > 0 && tegels[3] > 0 && tegels[4] > 0 && tegels[5] > 0 && tegels[6] > 0 && tegels[7] > 0 && tegels[8] > 0 ) {
+    winstatus();
+    text("het is gelijkspel!", 23, 200);
   }
+
   for (int j = 1; j <3; j++) {
     for (int i = 0; i <3; i++) {
 
       if (tegels[i*3] == j && tegels[i*3+1] == j && tegels[i*3+2] == j ) {
-
-        if (j == 1) {
-          background(250, 255, 8);
-          textSize(20);
-          fill(0);
-          text("kruisje heeft gewonnen!", 200, 200);
-          text("klik op spatie om de game te resetten", 150, 250);
-        } else if (j==2) {
-          background(250, 255, 8);
-          textSize(20);
-          fill(0);
-          text("rondje heeft gewonnen!", 200, 200);
-          text("klik op spatie om de game te resetten", 150, 250);
-        }
+        winstatus();
+       winnaar(i);
       }
     }
   }
   for (int j = 1; j <3; j++) {
     for (int i = 0; i < 3; i++) {
       if (tegels[i] == j && tegels[i+3] == j && tegels[i+6] == j) {
-        if (j == 1) {
-          background(250, 255, 8);
-          textSize(20);
-          fill(0);
-          text("kruisje heeft gewonnen!", 200, 200);
-          text("klik op spatie om de game te resetten", 150, 250);
-        } else if (j==2) {
-          background(250, 255, 8);
-          textSize(20);
-          fill(0);
-          text("rondje heeft gewonnen!", 200, 200);
-          text("klik op spatie om de game te resetten", 150, 250);
-        }
+        winstatus();
+        winnaar(i);
       }
     }
   }
 
-  for (int i = 0; i < 3; i++) {
+  for (int i = 1; i < 3; i++) {
     if (tegels[0] == i && tegels[4] == i && tegels[8] == i) {
-      if (i == 1) {
-        background(250, 255, 8);
-        textSize(20);
-        fill(0);
-        text("kruisje heeft gewonnen!", 200, 200);
-        text("klik op spatie om de game te resetten", 150, 250);
-      } else if (i==2) {
-        background(250, 255, 8);
-        textSize(20);
-        fill(0);
-        text("rondje heeft gewonnen!", 200, 200);
-        text("klik op spatie om de game te resetten", 150, 250);
-      }
+      winstatus();
+      winnaar(i);
     }
   }
-  for (int i = 0; i < 3; i++) {
+  for (int i = 1; i < 3; i++) {
     if (tegels[2] == i && tegels[4] == i && tegels[6] == i) {
-      if (i == 1) {
-        background(250, 255, 8);
-        textSize(20);
-        fill(0);
-        text("kruisje heeft gewonnen!", 200, 200);
-        text("klik op spatie om de game te resetten", 150, 250);
-      } else if (i==2) {
-        background(250, 255, 8);
-        textSize(20);
-        fill(0);
-        text("rondje heeft gewonnen!", 200, 200);
-        text("klik op spatie om de game te resetten", 150, 250);
-      }
+      winstatus();
+      winnaar(i);
     }
   }
 }
 
+void winstatus() {
+  background(250, 255, 8);
+  textSize(20);
+  fill(0);
+  text("klik op spatie om de game te resetten", 150, 250);
+}
 
+void winnaar(int i) {
+  if (i == 1) {
+
+    text("kruisje heeft gewonnen!", 200, 200);
+  } else if (i==2) {
+
+    text("rondje heeft gewonnen!", 200, 200);
+  }
+}
 
 
 
