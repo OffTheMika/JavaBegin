@@ -1,5 +1,5 @@
-Boolean speler = true;
-int[] tegels = new int[9];
+Boolean player = true;
+int[] tiles = new int[9];
 void setup() {
   size(600, 600);
   background(255);
@@ -16,48 +16,48 @@ void draw() {
       y+=200;
     }
     rect(x, y, 200, 200);
-    if (tegels[i] == 1) {
+    if (tiles[i] == 1) {
       line(i%3*200+50, y+150, i%3*200+150, y+50);
       line(i%3*200+50, y+50, i%3*200+150, y+150);
-    } else if (tegels[i] == 2) {
+    } else if (tiles[i] == 2) {
       ellipse(i%3*200+100, y+100, 125, 125);
     }
   }
 
 
-  if (tegels[0] > 0 && tegels[1] >0 && tegels[2] > 0 && tegels[3] > 0 && tegels[4] > 0 && tegels[5] > 0 && tegels[6] > 0 && tegels[7] > 0 && tegels[8] > 0 ) {
+  if (tiles[0] > 0 && tiles[1] >0 && tiles[2] > 0 && tiles[3] > 0 && tiles[4] > 0 && tiles[5] > 0 && tiles[6] > 0 && tiles[7] > 0 && tiles[8] > 0 ) {
     winstatus();
-    text("het is gelijkspel!", 23, 200);
+    text("it's a draw!", 245, 200);
   }
 
   for (int j = 1; j <3; j++) {
     for (int i = 0; i <3; i++) {
 
-      if (tegels[i*3] == j && tegels[i*3+1] == j && tegels[i*3+2] == j ) {
+      if (tiles[i*3] == j && tiles[i*3+1] == j && tiles[i*3+2] == j ) {
         winstatus();
-       winnaar(i);
+        winner(j);
       }
     }
   }
   for (int j = 1; j <3; j++) {
     for (int i = 0; i < 3; i++) {
-      if (tegels[i] == j && tegels[i+3] == j && tegels[i+6] == j) {
+      if (tiles[i] == j && tiles[i+3] == j && tiles[i+6] == j) {
         winstatus();
-        winnaar(i);
+        winner(j);
       }
     }
   }
 
   for (int i = 1; i < 3; i++) {
-    if (tegels[0] == i && tegels[4] == i && tegels[8] == i) {
+    if (tiles[0] == i && tiles[4] == i && tiles[8] == i) {
       winstatus();
-      winnaar(i);
+      winner(i);
     }
   }
   for (int i = 1; i < 3; i++) {
-    if (tegels[2] == i && tegels[4] == i && tegels[6] == i) {
+    if (tiles[2] == i && tiles[4] == i && tiles[6] == i) {
       winstatus();
-      winnaar(i);
+      winner(i);
     }
   }
 }
@@ -66,16 +66,16 @@ void winstatus() {
   background(250, 255, 8);
   textSize(20);
   fill(0);
-  text("klik op spatie om de game te resetten", 150, 250);
+  text("click space to reset the game", 175, 250);
 }
 
-void winnaar(int i) {
+void winner(int i) {
   if (i == 1) {
 
-    text("kruisje heeft gewonnen!", 200, 200);
+    text("cross won!", 245, 200);
   } else if (i==2) {
 
-    text("rondje heeft gewonnen!", 200, 200);
+    text("circle won!", 250, 200);
   }
 }
 
@@ -91,12 +91,12 @@ void mousePressed() {
     }
     if (mouseX > (i%3*200) && mouseX < (i%3*200+200) && mouseY > y && mouseY < y+200) {
 
-      if (tegels[i] == 0 && speler) {
-        tegels[i] = 1;
-        speler = false;
-      } else if (tegels[i] == 0) {
-        tegels[i] = 2;
-        speler = true;
+      if (tiles[i] == 0 && player) {
+        tiles[i] = 1;
+        player = false;
+      } else if (tiles[i] == 0) {
+        tiles[i] = 2;
+        player = true;
       }
     }
   }
@@ -104,15 +104,15 @@ void mousePressed() {
 void keyReleased() {
   if (keyCode == 32) {
 
-    tegels[0] = 0;
-    tegels[1] = 0;
-    tegels[2] = 0;
-    tegels[3] = 0;
-    tegels[4] = 0;
-    tegels[5] = 0;
-    tegels[6] = 0;
-    tegels[7] = 0;
-    tegels[8] = 0;
+    tiles[0] = 0;
+    tiles[1] = 0;
+    tiles[2] = 0;
+    tiles[3] = 0;
+    tiles[4] = 0;
+    tiles[5] = 0;
+    tiles[6] = 0;
+    tiles[7] = 0;
+    tiles[8] = 0;
     fill(255);
   }
 }
